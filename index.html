@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel=stylesheet href="./styles.css">
+        <title>FalcorJs</title>
+    </head>
+    <body>
+      <h1>Movies</h1>
+      <div id="data"></div>
+    </body>
+
+    <script src='//netflix.github.io/falcor/build/falcor.browser.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.js'> </script>
+    <script src="client.js"></script>
+    <script id="movie-template" type="text/x-handlebars-template">
+  {{#each this}}
+    <div class="movie">
+      <img src="{{image}}" alt={{title}} class="cover">
+      {{#if title}}
+      <span class="title">Title : {{title}}</span>
+      {{/if}}
+       {{#if releaseYear}}
+      <span class="release">Release Year: {{releaseYear}}</span>
+      {{/if}}
+    </div>
+    {{/each}}
+  </script>
+</html>

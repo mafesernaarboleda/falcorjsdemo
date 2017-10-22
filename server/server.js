@@ -14,11 +14,20 @@ app.use('/model.json', falcorExpress.dataSourceRoute(function (req, res) {
       route: 'movies',
       get: function () {
         return moviesServices.getMovies().then(function (movies) {
-          return {
-            path: ['movies'],
-            value: movies
-          }
-        })
+          return { path: ['movies'], value: movies }
+        },function(error) {
+          return { path: ['movies'], value: { $type: "error", value: error.message } };
+        });
+      }
+    },
+    {
+      route: 'genres',
+      get: function () {
+        return moviesServices.getGenres().then(function (genres) {
+          return { path: ['genres'], value: genres }
+        },function(error) {
+          return { path: ['genres'], value: { $type: "error", value: error.message } };
+        });
       }
     }
   ])

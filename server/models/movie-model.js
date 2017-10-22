@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const movieSchema = mongoose.Schema({
-  id:String
+  id:String,
   title: String,
   image: String,
   rating: Number,

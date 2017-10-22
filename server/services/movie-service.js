@@ -1,4 +1,6 @@
 const Movie = require('../models/movie-model')
+const Genre = require('../models/genre-model')
+
 const mongoose = require('mongoose')
 
 mongoose.connect('mongodb://admin:admin@ds015478.mlab.com:15478/falcorjsdemo')
@@ -17,5 +19,13 @@ module.exports = {
         return err
       return movies
     })
+  },
+  getGenres: function () {
+    return Genre.find(function (err, genres) {
+      if (err)
+        return err
+      return genres
+    })
   }
+
 }
